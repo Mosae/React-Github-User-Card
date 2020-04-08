@@ -27,7 +27,7 @@ class App extends React.Component {
 			<div className="App">
 				<h1>Git Hub User card</h1>
 
-				<DisplayUserData />
+				<DisplayUserData userData={this.state.userName} />
 			</div>
 		);
 	}
