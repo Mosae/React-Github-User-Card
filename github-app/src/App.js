@@ -23,6 +23,16 @@ class App extends React.Component {
 				});
 			})
 			.catch((error) => console.log('Data not returned', error));
+
+		axios
+			.get('https://api.github.com/users/Mosae/followers')
+			.then((response) => {
+				console.log('Followers: ', response);
+				this.setState({
+					userFollowers: null,
+				});
+			})
+			.catch((error) => console.log('Data not returned', error));
 	}
 
 	render() {
