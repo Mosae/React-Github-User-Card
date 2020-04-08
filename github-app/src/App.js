@@ -11,12 +11,15 @@ class App extends React.Component {
 	};
 
 	componentDidMount() {
-		axios.get('https://api.github.com/users/Mosae').then((response) => {
-			console.log(response.data.name);
-			this.setState({
-				userName: response.data.name,
-			});
-		});
+		axios
+			.get('https://api.github.com/users/Mosae')
+			.then((response) => {
+				console.log(response.data.name);
+				this.setState({
+					userName: response.data.name,
+				});
+			})
+			.catch((error) => console.log('Data not returned', error));
 	}
 
 	render() {
