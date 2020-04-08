@@ -39,7 +39,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="App">
-				<h1>Git Hub User card</h1>
+				<h1 className="nav">Git Hub User card</h1>
 
 				<DisplayUserData
 					userData={this.state.userName}

@@ -16,7 +16,7 @@ const DisplayUserData = (props) => {
 				<Col sm="6" md={{ size: 3, offset: 6 }} lg={{ size: 4, offset: 4 }}>
 					<CardImg width="100%" src={props.userPicture} alt="Card image cap" />
 				</Col>
-				<CardBody>
+				<CardBody className="cardBody">
 					<CardTitle>
 						<h2>Name: {props.userData}</h2>
 					</CardTitle>
