@@ -6,7 +6,8 @@ import axios from 'axios';
 class App extends React.Component {
 	state = {
 		userName: '',
-		userLastName: '',
+		userLocation: '',
+		userPicture: '',
 		userFollowers: '',
 	};
 
@@ -14,9 +15,11 @@ class App extends React.Component {
 		axios
 			.get('https://api.github.com/users/Mosae')
 			.then((response) => {
-				console.log(response.data.name);
+				console.log(response.data);
 				this.setState({
 					userName: response.data.name,
+					userLocation: response.data.location,
+					userPicture: response.data.avatar_url,
 				});
 			})
 			.catch((error) => console.log('Data not returned', error));
@@ -27,7 +30,11 @@ class App extends React.Component {
 			<div className="App">
 				<h1>Git Hub User card</h1>
 
-				<DisplayUserData userData={this.state.userName} />
+				<DisplayUserData
+					userData={this.state.userName}
+					userLocation={this.state.userLocation}
+					userPicture={this.state.userPicture}
+				/>
 			</div>
 		);
 	}
