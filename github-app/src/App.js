@@ -8,7 +8,7 @@ class App extends React.Component {
 		userName: '',
 		userLocation: '',
 		userPicture: '',
-		userFollowers: '',
+		userFollowers: [],
 	};
 
 	componentDidMount() {
@@ -27,9 +27,9 @@ class App extends React.Component {
 		axios
 			.get('https://api.github.com/users/Mosae/followers')
 			.then((response) => {
-				console.log('Followers: ', response);
+				console.log('Followers: ', response.data);
 				this.setState({
-					userFollowers: null,
+					userFollowers: response.data,
 				});
 			})
 			.catch((error) => console.log('Data not returned', error));
@@ -44,6 +44,7 @@ class App extends React.Component {
 					userData={this.state.userName}
 					userLocation={this.state.userLocation}
 					userPicture={this.state.userPicture}
+					userFollowers={this.state.userFollowers}
 				/>
 			</div>
 		);
